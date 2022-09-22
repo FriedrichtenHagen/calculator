@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator{
+    background-color: darksalmon;
+    height: 500px;
+    width: 400px;
+    border-radius: 20px;
+}
+.outputField{
+    height: 198px;
+    width: 398px;
+    border-radius: 20px;
+    border: 1px solid black ;
+}
+.keyPad{
+    height: 298px;
+    width: 398px;
+    border-radius: 20px;
+    border: 1px solid black ;
+}
