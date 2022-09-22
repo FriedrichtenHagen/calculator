@@ -24,20 +24,56 @@ function operate(operator, a, b){
     }
 }
 
-const key1 = document.querySelector("one")
-const key2 = document.querySelector("two")
-const key3 = document.querySelector("three")
-const key4 = document.querySelector("four")
-const key5 = document.querySelector("five")
-const key6 = document.querySelector("six")
-const key7 = document.querySelector("seven")
-const key8 = document.querySelector("eight")
-const key9 = document.querySelector("nine")
-const key0 = document.querySelector("zero")
-const keyAdd = document.querySelector("add")
-const keySub = document.querySelector("subtract")
-const keyMul = document.querySelector("multiply")
-const keyDiv = document.querySelector("divide")
-const keyEqu = document.querySelector("equals")
-const keyCle = document.querySelector("clear")
+const key1 = document.querySelector(".one");
+const key2 = document.querySelector(".two");
+const key3 = document.querySelector(".three")
+const key4 = document.querySelector(".four")
+const key5 = document.querySelector(".five")
+const key6 = document.querySelector(".six")
+const key7 = document.querySelector(".seven")
+const key8 = document.querySelector(".eight")
+const key9 = document.querySelector(".nine")
+const key0 = document.querySelector(".zero")
+const keyAdd = document.querySelector(".add")
+const keySub = document.querySelector(".subtract")
+const keyMul = document.querySelector(".multiply")
+const keyDiv = document.querySelector(".divide")
+const keyEqu = document.querySelector(".equals")
+const keyCle = document.querySelector(".clear")
+key1.addEventListener("click", e => {
+    fillField(e)
+})
+key2.addEventListener("click", e => {
+    fillField(e)
+})
+key3.addEventListener("click", e => {
+    fillField(e)
+})
+key4.addEventListener("click", e => {
+    fillField(e)
+})
+key5.addEventListener("click", e => {
+    fillField(e)
+})
+key6.addEventListener("click", e => {
+    fillField(e)
+})
+key7.addEventListener("click", e => {
+    fillField(e)
+})
+key8.addEventListener("click", e => {
+    fillField(e)
+})
+key9.addEventListener("click", e => {
+    fillField(e)
+})
+key0.addEventListener("click", e => {
+    fillField(e)
+})
 
+
+function fillField(e){
+    console.log(e.target.firstChild.nodeValue)
+    let currentValue = parseInt(e.target.firstChild.nodeValue)
+    console.log(currentValue)
+}
