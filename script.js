@@ -62,11 +62,16 @@ let displayValue = ""
 function fillField(e){
     let currentValue = e.target.firstChild.nodeValue
     displayValue += currentValue
-    console.log(displayValue)
     outputField.textContent = displayValue
 }
 
 function clearInputField(){
     displayValue = ""
     outputField.textContent = displayValue
+}
+function splitString(){
+    let splitString = displayValue.split("-",2)
+    a = parseInt(splitString[0])
+    b = parseInt(splitString[1])
+    console.log(operate("-", a,b))
 }

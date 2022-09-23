@@ -12,13 +12,21 @@ body{
 }
 .outputField{
     box-sizing: border-box;
-    height: 200px;
+    height: 100px;
     width: 400px;
     border-radius: 20px;
     border: 2px solid black ;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.resultField{
+    height: 100px;
+    width: 400px;
+    border-radius: 20px;
+    border: 2px solid black ;
+
+
 }
 .keyPad{
     box-sizing: border-box;
