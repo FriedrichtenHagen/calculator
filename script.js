@@ -131,11 +131,11 @@ function saveOperator(e){
 
 
 
-// logic one: seperate the input string by the operator
-// how to find out which operator is used?
-
-// use a variable that saves the operator (on click)
-// how to find out where the end of the numbers is?
+/* 
+Todos:
+rearrange the numbers and operators in html (copy real calculator)
+display calculation in upper field
+*/
 
 /* 
 on operator click: 
