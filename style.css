@@ -8,7 +8,8 @@ body{
     height: 500px;
     width: 400px;
     border-radius: 20px;
-    border: 2px solid black;
+
+ 
 }
 .outputField{
     box-sizing: border-box;
@@ -25,6 +26,7 @@ body{
     width: 400px;
     border-radius: 20px;
     border: 2px solid black ;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,10 +49,13 @@ body{
 .key{
     box-sizing: border-box;
     border-radius: 20px;
-    width: 99px;
+    width: 100px;
     height:75px;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;   
+    background-color: cadetblue;
+    cursor: pointer;
+    
 }

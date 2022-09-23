@@ -87,3 +87,20 @@ function splitString(){
 
 // use a variable that saves the operator (on click)
 // how to find out where the end of the numbers is?
+
+/* 
+on operator click: 
+save operator as currentOperator
+save first string as num1
+set displayResult = num1
+(maybe let the operator button stay red)
+clear outputField, displayValue = 0
+...enter further number
+on equ click: 
+save num2 = outputField
+display: operate(currentOperator, num1, num2)
+
+
+
+
+*/
