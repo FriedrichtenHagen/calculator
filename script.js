@@ -41,6 +41,7 @@ const keyDiv = document.querySelector(".divide")
 const keyEqu = document.querySelector(".equals")
 const keyCle = document.querySelector(".clear")
 const outputField = document.querySelector(".outputField")
+const resultField = document.querySelector(".resultField")
 key1.addEventListener("click", e => fillField(e))
 key2.addEventListener("click", e => fillField(e))
 key3.addEventListener("click", e => fillField(e))
@@ -55,10 +56,12 @@ keyAdd.addEventListener("click", e => fillField(e))
 keySub.addEventListener("click", e => fillField(e))
 keyMul.addEventListener("click", e => fillField(e))
 keyDiv.addEventListener("click", e => fillField(e))
-keyEqu.addEventListener("click", e => fillField(e))
+keyEqu.addEventListener("click", e => splitString())
 keyCle.addEventListener("click", e => clearInputField())
 
 let displayValue = ""
+let displayResult = ""
+
 function fillField(e){
     let currentValue = e.target.firstChild.nodeValue
     displayValue += currentValue
@@ -68,10 +71,14 @@ function fillField(e){
 function clearInputField(){
     displayValue = ""
     outputField.textContent = displayValue
+    displayResult = ""
+    resultField.textContent = displayResult
 }
 function splitString(){
     let splitString = displayValue.split("-",2)
     a = parseInt(splitString[0])
     b = parseInt(splitString[1])
-    console.log(operate("-", a,b))
+    displayResult = operate("-", a,b)
+    resultField.textContent = displayResult
 }
+
