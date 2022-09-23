@@ -11,6 +11,8 @@ function divide(a,b){
     return a/b
 }
 function operate(operator, a, b){
+    a = parseInt(a)
+    b = parseInt(b)
     switch(operator){
         case "+": return add(a,b)
             break;
@@ -23,6 +25,14 @@ function operate(operator, a, b){
         default: console.log("not valid operator")
     }
 }
+function showResult(){ 
+    a = operate(currentOperator, a, b)
+    resultField.textContent = a
+    b= ""
+    outputField.textContent = ""
+    currentOperator = ""
+    
+}
 
 const key1 = document.querySelector(".one");
 const key2 = document.querySelector(".two");
@@ -34,6 +44,7 @@ const key7 = document.querySelector(".seven")
 const key8 = document.querySelector(".eight")
 const key9 = document.querySelector(".nine")
 const key0 = document.querySelector(".zero")
+
 const keyAdd = document.querySelector(".add")
 const keySub = document.querySelector(".subtract")
 const keyMul = document.querySelector(".multiply")
@@ -58,35 +69,46 @@ keySub.addEventListener("click", e => saveOperator(e))
 keyMul.addEventListener("click", e => saveOperator(e))
 keyDiv.addEventListener("click", e => saveOperator(e))
 
-keyEqu.addEventListener("click", e => splitString())
+keyEqu.addEventListener("click", e =>showResult())
 keyCle.addEventListener("click", e => clearInputFields())
 
-let displayValue = ""
-let displayResult = ""
+let b = ""
+let a = ""
 let currentOperator= ""
 
 function fillField(e){
     let currentValue = e.target.firstChild.nodeValue
-    displayValue += currentValue
-    outputField.textContent = displayValue
+    b += currentValue
+    outputField.textContent = b
 }
 
 function clearInputFields(){
-    displayValue = ""
-    outputField.textContent = displayValue
-    displayResult = ""
-    resultField.textContent = displayResult
+    b = ""
+    outputField.textContent = b
+    a = ""
+    resultField.textContent = a
 }
 
 function saveOperator(e){
-    let currentOperator = e.target.firstChild.nodeValue
-    console.log(currentOperator)
-
-    resultField.textContent = displayValue
-    displayResult = displayValue
-    outputField.textContent = ""
-    displayValue = ""
+    currentOperator = e.target.firstChild.nodeValue
+    console.log(e)
+    switch(e.target.classList[1]){
+        case "add": keyAdd.classList.toggle("currentOperator") 
+        break;
+        case "subtract": keySub.classList.toggle("currentOperator") 
+        break;
+    }
+    if(a === ""){
+        resultField.textContent = b
+        a = b
+        outputField.textContent = ""
+        b = ""
+    }
+    else{
+        // perform operation on added number  
+    }
 }
+
 
 
 // logic one: seperate the input string by the operator
@@ -99,9 +121,9 @@ function saveOperator(e){
 on operator click: 
 save operator as currentOperator
 save first string as num1
-set displayResult = num1
+set a = num1
 (maybe let the operator button stay red)
-clear outputField, displayValue = 0
+clear outputField, b = 0
 ...enter further number
 on equ click: 
 save num2 = outputField
@@ -113,11 +135,11 @@ display: operate(currentOperator, num1, num2)
 
 
 function splitString(){
-    let splitString = displayValue.split("-",2)
+    let splitString = b.split("-",2)
     a = parseInt(splitString[0])
     b = parseInt(splitString[1])
-    displayResult = operate("-", a,b)
-    resultField.textContent = displayResult
+    a = operate("-", a,b)
+    resultField.textContent = a
 }
 
 */
