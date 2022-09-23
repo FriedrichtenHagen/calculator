@@ -93,7 +93,7 @@ function saveOperator(e){
     currentOperator = e.target.firstChild.nodeValue
     console.log(e)
     switch(e.target.classList[1]){
-        case "add": keyAdd.classList.toggle("currentOperator") 
+        case "add": keyAdd.classList.add("currentOperator") 
         break;
         case "subtract": keySub.classList.toggle("currentOperator") 
         break;
@@ -103,10 +103,30 @@ function saveOperator(e){
         a = b
         outputField.textContent = ""
         b = ""
+
+        setTimeout(test => {
+            switch(e.target.classList[1]){
+                case "add": keyAdd.classList.remove("currentOperator") 
+                break;
+                case "subtract": keySub.classList.remove("currentOperator") 
+                break;
+            }
+        }, 500)
     }
     else{
         // perform operation on added number  
+        // a !== ""
+        showResult()
+        setTimeout(test => {
+            switch(e.target.classList[1]){
+                case "add": keyAdd.classList.remove("currentOperator") 
+                break;
+                case "subtract": keySub.classList.remove("currentOperator") 
+                break;
+            }
+        }, 500)
     }
+
 }
 
 
