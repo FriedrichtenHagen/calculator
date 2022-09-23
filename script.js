@@ -52,15 +52,18 @@ key7.addEventListener("click", e => fillField(e))
 key8.addEventListener("click", e => fillField(e))
 key9.addEventListener("click", e => fillField(e))
 key0.addEventListener("click", e => fillField(e))
-keyAdd.addEventListener("click", e => fillField(e))
-keySub.addEventListener("click", e => fillField(e))
-keyMul.addEventListener("click", e => fillField(e))
-keyDiv.addEventListener("click", e => fillField(e))
+
+keyAdd.addEventListener("click", e => saveOperator(e))
+keySub.addEventListener("click", e => saveOperator(e))
+keyMul.addEventListener("click", e => saveOperator(e))
+keyDiv.addEventListener("click", e => saveOperator(e))
+
 keyEqu.addEventListener("click", e => splitString())
-keyCle.addEventListener("click", e => clearInputField())
+keyCle.addEventListener("click", e => clearInputFields())
 
 let displayValue = ""
 let displayResult = ""
+let currentOperator= ""
 
 function fillField(e){
     let currentValue = e.target.firstChild.nodeValue
@@ -68,19 +71,23 @@ function fillField(e){
     outputField.textContent = displayValue
 }
 
-function clearInputField(){
+function clearInputFields(){
     displayValue = ""
     outputField.textContent = displayValue
     displayResult = ""
     resultField.textContent = displayResult
 }
-function splitString(){
-    let splitString = displayValue.split("-",2)
-    a = parseInt(splitString[0])
-    b = parseInt(splitString[1])
-    displayResult = operate("-", a,b)
-    resultField.textContent = displayResult
+
+function saveOperator(e){
+    let currentOperator = e.target.firstChild.nodeValue
+    console.log(currentOperator)
+
+    resultField.textContent = displayValue
+    displayResult = displayValue
+    outputField.textContent = ""
+    displayValue = ""
 }
+
 
 // logic one: seperate the input string by the operator
 // how to find out which operator is used?
@@ -102,5 +109,15 @@ display: operate(currentOperator, num1, num2)
 
 
 
+
+
+
+function splitString(){
+    let splitString = displayValue.split("-",2)
+    a = parseInt(splitString[0])
+    b = parseInt(splitString[1])
+    displayResult = operate("-", a,b)
+    resultField.textContent = displayResult
+}
 
 */
