@@ -40,40 +40,33 @@ const keyMul = document.querySelector(".multiply")
 const keyDiv = document.querySelector(".divide")
 const keyEqu = document.querySelector(".equals")
 const keyCle = document.querySelector(".clear")
-key1.addEventListener("click", e => {
-    fillField(e)
-})
-key2.addEventListener("click", e => {
-    fillField(e)
-})
-key3.addEventListener("click", e => {
-    fillField(e)
-})
-key4.addEventListener("click", e => {
-    fillField(e)
-})
-key5.addEventListener("click", e => {
-    fillField(e)
-})
-key6.addEventListener("click", e => {
-    fillField(e)
-})
-key7.addEventListener("click", e => {
-    fillField(e)
-})
-key8.addEventListener("click", e => {
-    fillField(e)
-})
-key9.addEventListener("click", e => {
-    fillField(e)
-})
-key0.addEventListener("click", e => {
-    fillField(e)
-})
+const outputField = document.querySelector(".outputField")
+key1.addEventListener("click", e => fillField(e))
+key2.addEventListener("click", e => fillField(e))
+key3.addEventListener("click", e => fillField(e))
+key4.addEventListener("click", e => fillField(e))
+key5.addEventListener("click", e => fillField(e))
+key6.addEventListener("click", e => fillField(e))
+key7.addEventListener("click", e => fillField(e))
+key8.addEventListener("click", e => fillField(e))
+key9.addEventListener("click", e => fillField(e))
+key0.addEventListener("click", e => fillField(e))
+keyAdd.addEventListener("click", e => fillField(e))
+keySub.addEventListener("click", e => fillField(e))
+keyMul.addEventListener("click", e => fillField(e))
+keyDiv.addEventListener("click", e => fillField(e))
+keyEqu.addEventListener("click", e => fillField(e))
+keyCle.addEventListener("click", e => clearInputField())
 
-
+let displayValue = ""
 function fillField(e){
-    console.log(e.target.firstChild.nodeValue)
-    let currentValue = parseInt(e.target.firstChild.nodeValue)
-    console.log(currentValue)
+    let currentValue = e.target.firstChild.nodeValue
+    displayValue += currentValue
+    console.log(displayValue)
+    outputField.textContent = displayValue
+}
+
+function clearInputField(){
+    displayValue = ""
+    outputField.textContent = displayValue
 }
