@@ -25,14 +25,6 @@ function operate(operator, a, b){
         default: console.log("not valid operator")
     }
 }
-function showResult(){ 
-
-    let result = operate(currentOperator, a, b)
-    resultField.textContent = a + currentOperator + b + "="
-    outputField.textContent = result
-    currentOperator = ""
-    a = result
-}
 
 const key1 = document.querySelector(".one");
 const key2 = document.querySelector(".two");
@@ -51,8 +43,8 @@ const keyMul = document.querySelector(".multiply")
 const keyDiv = document.querySelector(".divide")
 const keyEqu = document.querySelector(".equals")
 const keyCle = document.querySelector(".clear")
-const outputField = document.querySelector(".outputField")
-const resultField = document.querySelector(".resultField")
+const lowerField = document.querySelector(".lowerField")
+const upperField = document.querySelector(".upperField")
 key1.addEventListener("click", e => fillField(e))
 key2.addEventListener("click", e => fillField(e))
 key3.addEventListener("click", e => fillField(e))
@@ -64,10 +56,10 @@ key8.addEventListener("click", e => fillField(e))
 key9.addEventListener("click", e => fillField(e))
 key0.addEventListener("click", e => fillField(e))
 
-keyAdd.addEventListener("click", e => saveOperator(e))
-keySub.addEventListener("click", e => saveOperator(e))
-keyMul.addEventListener("click", e => saveOperator(e))
-keyDiv.addEventListener("click", e => saveOperator(e))
+keyAdd.addEventListener("click", e => addOperator(e))
+keySub.addEventListener("click", e => addOperator(e))
+keyMul.addEventListener("click", e => addOperator(e))
+keyDiv.addEventListener("click", e => addOperator(e))
 
 keyEqu.addEventListener("click", e =>showResult())
 keyCle.addEventListener("click", e => clearInputFields())
@@ -79,34 +71,39 @@ let currentOperator= ""
 function fillField(e){
     let currentValue = e.target.firstChild.nodeValue
     b += currentValue
-    outputField.textContent = b
+    lowerField.textContent = b
 }
 function clearInputFields(){
     b = ""
-    outputField.textContent = b
+    lowerField.textContent = b
     a = ""
-    resultField.textContent = a
+    upperField.textContent = a
 }
 
-function saveOperator(e){
+function addOperator(e){
     currentOperator = e.target.firstChild.nodeValue
     console.log(e)
 
     if(a === ""){
-        resultField.textContent = b + currentOperator
+        upperField.textContent = b + currentOperator
         a = b
-        outputField.textContent = ""
+        lowerField.textContent = ""
         b = ""
     }
     else{
         // perform operation on added number  
         // a !== ""
-
+        
         showResult()
     }
 }
-
-
+function showResult(){ 
+    let result = operate(currentOperator, a, b)
+    upperField.textContent = a + currentOperator + b + "="
+    lowerField.textContent = result
+    currentOperator = ""
+    a = result
+}
 
 /* 
 Todos:
