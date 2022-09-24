@@ -26,12 +26,12 @@ function operate(operator, a, b){
     }
 }
 function showResult(){ 
-    a = operate(currentOperator, a, b)
-    resultField.textContent = a
-    b= ""
-    outputField.textContent = ""
+
+    let result = operate(currentOperator, a, b)
+    resultField.textContent = a + currentOperator + b + "="
+    outputField.textContent = result
     currentOperator = ""
-    
+    a = result
 }
 
 const key1 = document.querySelector(".one");
@@ -81,7 +81,6 @@ function fillField(e){
     b += currentValue
     outputField.textContent = b
 }
-
 function clearInputFields(){
     b = ""
     outputField.textContent = b
@@ -92,41 +91,19 @@ function clearInputFields(){
 function saveOperator(e){
     currentOperator = e.target.firstChild.nodeValue
     console.log(e)
-    switch(e.target.classList[1]){
-        case "add": keyAdd.classList.add("currentOperator") 
-        break;
-        case "subtract": keySub.classList.toggle("currentOperator") 
-        break;
-    }
+
     if(a === ""){
-        resultField.textContent = b
+        resultField.textContent = b + currentOperator
         a = b
         outputField.textContent = ""
         b = ""
-
-        setTimeout(test => {
-            switch(e.target.classList[1]){
-                case "add": keyAdd.classList.remove("currentOperator") 
-                break;
-                case "subtract": keySub.classList.remove("currentOperator") 
-                break;
-            }
-        }, 500)
     }
     else{
         // perform operation on added number  
         // a !== ""
-        showResult()
-        setTimeout(test => {
-            switch(e.target.classList[1]){
-                case "add": keyAdd.classList.remove("currentOperator") 
-                break;
-                case "subtract": keySub.classList.remove("currentOperator") 
-                break;
-            }
-        }, 500)
-    }
 
+        showResult()
+    }
 }
 
 
@@ -138,28 +115,24 @@ display calculation in upper field
 */
 
 /* 
-on operator click: 
-save operator as currentOperator
-save first string as num1
-set a = num1
-(maybe let the operator button stay red)
-clear outputField, b = 0
-...enter further number
-on equ click: 
-save num2 = outputField
-display: operate(currentOperator, num1, num2)
+
+upperField
+lowerField
+a
+b
+currentOperator
 
 
+1: add (a)number plus operator to upperField
+2: enter (b)
+3: equals: upperField: axb= 
+            lowerField: result
+
+4: new operator: upperF : result-
+                    lower: b
+5: equals: upperF: a-b
+            lowerF: result
 
 
-
-
-function splitString(){
-    let splitString = b.split("-",2)
-    a = parseInt(splitString[0])
-    b = parseInt(splitString[1])
-    a = operate("-", a,b)
-    resultField.textContent = a
-}
 
 */
