@@ -101,11 +101,17 @@ function addOperator(e){
     }
 }
 function showResult(){ 
-    let result = operate(currentOperator, a, b)
-    upperField.textContent = a + currentOperator + b + "="
-    lowerField.textContent = result
-    currentOperator = ""
-    a = result
+    if(currentOperator === "/" && b === "0"){
+        alert("You can't devide by zero, stupid!")
+    }
+    else{
+        let result = operate(currentOperator, a, b)
+        upperField.textContent = a + currentOperator + b + "="
+        lowerField.textContent = result
+        currentOperator = ""
+        a = result
+    }
+
 }
 
 /* 
