@@ -116,29 +116,11 @@ function showResult(){
 
 /* 
 Todos:
-rearrange the numbers and operators in html (copy real calculator)
-display calculation in upper field
-*/
-
-/* 
-
-upperField
-lowerField
-a
-b
-currentOperator
-
-
-1: add (a)number plus operator to upperField
-2: enter (b)
-3: equals: upperField: axb= 
-            lowerField: result
-
-4: new operator: upperF : result-
-                    lower: b
-5: equals: upperF: a-b
-            lowerF: result
-
-
+    - create delete function
+    - implement . function
+    - enable multiple calculations
+    - enable adding numbers to result
+    
 
 */
+
