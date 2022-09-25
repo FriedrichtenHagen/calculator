@@ -97,7 +97,7 @@ function addOperator(e){
         // a !== ""
         // a === result
         //
-        a = result
+        a = b
         upperField.textContent = a + currentOperator
         lowerField.textContent = ""
         b = ""
@@ -113,17 +113,18 @@ function showResult(){
         upperField.textContent = a + currentOperator + b + "="
         lowerField.textContent = result
         currentOperator = ""
-    
+        b = result
     }
 }
 function deleteNum(){
-    b = b.slice(0,-1)
+    b = b.toString().slice(0,-1)
     lowerField.textContent = b
 }
 
 /* 
 Todos:
-    - create delete function: resolve problem with deleting result/b
+    - create delete function
+    - bug: results get rounded????
     - implement . function
     - enable multiple calculations
     - enable adding numbers to result
