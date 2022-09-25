@@ -43,6 +43,7 @@ const keyMul = document.querySelector(".multiply")
 const keyDiv = document.querySelector(".divide")
 const keyEqu = document.querySelector(".equals")
 const keyCle = document.querySelector(".clear")
+const keyDel = document.querySelector(".delete")
 const lowerField = document.querySelector(".lowerField")
 const upperField = document.querySelector(".upperField")
 key1.addEventListener("click", e => fillField(e))
@@ -60,7 +61,7 @@ keyAdd.addEventListener("click", e => addOperator(e))
 keySub.addEventListener("click", e => addOperator(e))
 keyMul.addEventListener("click", e => addOperator(e))
 keyDiv.addEventListener("click", e => addOperator(e))
-
+keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
 keyCle.addEventListener("click", e => clearInputFields())
 
@@ -111,7 +112,9 @@ function showResult(){
         currentOperator = ""
         a = result
     }
-
+}
+function deleteNum(){
+    alert("YOOOO")
 }
 
 /* 
@@ -120,7 +123,6 @@ Todos:
     - implement . function
     - enable multiple calculations
     - enable adding numbers to result
-    
 
 */
 
