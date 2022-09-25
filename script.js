@@ -93,8 +93,11 @@ function addOperator(e){
     else{
         // perform operation on added number  
         // a !== ""
-        
-        showResult()
+        // a === result
+        //
+        upperField.textContent = a + currentOperator
+        lowerField.textContent = ""
+        b = ""
     }
 }
 function showResult(){ 
