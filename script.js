@@ -79,6 +79,7 @@ function clearInputFields(){
     lowerField.textContent = b
     a = ""
     upperField.textContent = a
+    result= ""
 }
 
 function addOperator(e){
@@ -96,33 +97,36 @@ function addOperator(e){
         // a !== ""
         // a === result
         //
+        a = result
         upperField.textContent = a + currentOperator
         lowerField.textContent = ""
         b = ""
     }
 }
+let result = ""
 function showResult(){ 
     if(currentOperator === "/" && b === "0"){
-        alert("You can't devide by zero, stupid!")
+        alert("You can't divide by zero, stupid!")
     }
     else{
-        let result = operate(currentOperator, a, b)
+        result = operate(currentOperator, a, b)
         upperField.textContent = a + currentOperator + b + "="
         lowerField.textContent = result
         currentOperator = ""
-        a = result
+    
     }
 }
 function deleteNum(){
-    alert("YOOOO")
+    b = b.slice(0,-1)
+    lowerField.textContent = b
 }
 
 /* 
 Todos:
-    - create delete function
+    - create delete function: resolve problem with deleting result/b
     - implement . function
     - enable multiple calculations
     - enable adding numbers to result
-
+    - round all results
 */
 
