@@ -55,7 +55,9 @@ body{
     align-items: center;   
     background-color: cadetblue;
     cursor: pointer;
-    
+}
+.divide, .multiply, .subtract, .add{
+    background-color: rgb(145, 181, 131);
 }
 .currentOperator{
     background-color:aqua;

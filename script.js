@@ -86,8 +86,6 @@ function clearInputFields(){
 
 function addOperator(e){
     currentOperator = e.target.firstChild.nodeValue
-    console.log(e)
-
     if(a === ""){
         upperField.textContent = b + currentOperator
         a = b
@@ -129,6 +127,6 @@ Todos:
     - enable multiple calculations
     - enable adding numbers to result
     - round all results to prevent float numbers being overly long 
-    
+
 */
 
