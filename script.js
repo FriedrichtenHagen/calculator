@@ -11,8 +11,8 @@ function divide(a,b){
     return a/b
 }
 function operate(operator, a, b){
-    a = parseInt(a)
-    b = parseInt(b)
+    a = parseFloat(a*1)
+    b = parseFloat(b*1)
     switch(operator){
         case "+": return add(a,b)
             break;
@@ -44,6 +44,7 @@ const keyDiv = document.querySelector(".divide")
 const keyEqu = document.querySelector(".equals")
 const keyCle = document.querySelector(".clear")
 const keyDel = document.querySelector(".delete")
+const keyPoi = document.querySelector(".point")
 const lowerField = document.querySelector(".lowerField")
 const upperField = document.querySelector(".upperField")
 key1.addEventListener("click", e => fillField(e))
@@ -63,6 +64,7 @@ keyMul.addEventListener("click", e => addOperator(e))
 keyDiv.addEventListener("click", e => addOperator(e))
 keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
+keyPoi.addEventListener("click", e => fillField(e))
 keyCle.addEventListener("click", e => clearInputFields())
 
 let b = ""
@@ -123,11 +125,10 @@ function deleteNum(){
 
 /* 
 Todos:
-    - create delete function
     - bug: results get rounded????
-    - implement . function
     - enable multiple calculations
     - enable adding numbers to result
-    - round all results
+    - round all results to prevent float numbers being overly long 
+    
 */
 
