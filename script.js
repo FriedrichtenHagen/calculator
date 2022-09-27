@@ -119,6 +119,7 @@ function showResult(){
     }
     else{
         result = operate(currentOperator, a, b)
+        result = Math.round(result*1000000)/1000000 //round float to 6 decimal places
         upperField.textContent = a + currentOperator + b + "="
         lowerField.textContent = result
         currentOperator = ""
@@ -132,11 +133,12 @@ function deleteNum(){
 
 /* 
 Todos:
-    - bug: results get rounded????
-    - round all results to prevent float numbers being overly long 
+    - bug: results get rounded???? 
         (they especially get annoying once they reach the upper field)
     - prevent adding multiple points (.)
     - calculations should be able to be strung together without using equals
         -check
+    - add keyboard support
+    - 
 */
 
