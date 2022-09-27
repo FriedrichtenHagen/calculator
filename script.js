@@ -73,8 +73,13 @@ let currentOperator= ""
 
 function fillField(e){
     let currentValue = e.target.firstChild.nodeValue
-    b += currentValue
-    lowerField.textContent = b
+    if(currentValue === "." && b.includes(".")){
+        alert("no double points idiot!")
+    }
+    else{
+        b += currentValue
+        lowerField.textContent = b
+    }
 }
 function clearInputFields(){
     b = ""
@@ -97,7 +102,8 @@ function addOperator(e){
         // a !== ""
         // a === result
         //
-        a = b
+        result = "" // reset result
+        a = b   // move result of previos calculation to a (upper)
         upperField.textContent = a + currentOperator
         lowerField.textContent = ""
         b = ""
@@ -124,9 +130,9 @@ function deleteNum(){
 /* 
 Todos:
     - bug: results get rounded????
-    - enable multiple calculations
-    - enable adding numbers to result
     - round all results to prevent float numbers being overly long 
-
+        (they especially get annoying once they reach the upper field)
+    - prevent adding multiple points (.)
+    - 
 */
 
