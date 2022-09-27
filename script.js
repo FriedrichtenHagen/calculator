@@ -114,6 +114,9 @@ function showResult(){
     if(currentOperator === "/" && b === "0"){
         alert("You can't divide by zero, stupid!")
     }
+    else if(a==="" || b==="" || currentOperator === ""){
+        alert("you're missing something there bud")
+    }
     else{
         result = operate(currentOperator, a, b)
         upperField.textContent = a + currentOperator + b + "="
@@ -133,6 +136,7 @@ Todos:
     - round all results to prevent float numbers being overly long 
         (they especially get annoying once they reach the upper field)
     - prevent adding multiple points (.)
-    - 
+    - calculations should be able to be strung together without using equals
+        -check
 */
 
