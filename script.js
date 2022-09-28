@@ -201,7 +201,7 @@ function deleteNum(){
 Todos:
     - calculations should be able to be strung together without using equals
         -check
-    - add keyboard support
+    - add keyboard support for operators
     - 
 */
 
