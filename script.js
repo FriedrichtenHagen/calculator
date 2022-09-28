@@ -47,23 +47,46 @@ const keyDel = document.querySelector(".delete")
 const keyPoi = document.querySelector(".point")
 const lowerField = document.querySelector(".lowerField")
 const upperField = document.querySelector(".upperField")
-key1.addEventListener("click", e => fillField(e))
-key2.addEventListener("click", e => fillField(e))
-key3.addEventListener("click", e => fillField(e))
-key4.addEventListener("click", e => fillField(e))
-key5.addEventListener("click", e => fillField(e))
-key6.addEventListener("click", e => fillField(e))
-key7.addEventListener("click", e => fillField(e))
-key8.addEventListener("click", e => fillField(e))
-key9.addEventListener("click", e => fillField(e))
-key0.addEventListener("click", e => fillField(e))
+key1.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key2.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key3.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key4.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key5.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key6.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key7.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key8.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key9.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+key0.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
+keyPoi.addEventListener("click", e => {
+    currentValue = e.target.firstChild.nodeValue
+    fillField(currentValue)})
 keyAdd.addEventListener("click", e => addOperator(e))
 keySub.addEventListener("click", e => addOperator(e))
 keyMul.addEventListener("click", e => addOperator(e))
 keyDiv.addEventListener("click", e => addOperator(e))
 keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
-keyPoi.addEventListener("click", e => fillField(e))
+
 keyCle.addEventListener("click", e => clearInputFields())
 document.addEventListener("keydown", e => {
     console.log(e)
@@ -80,6 +103,33 @@ document.addEventListener("keydown", e => {
                 break; 
             case "+": addOperator("+");
                 break; 
+            case "1": {currentValue = "1"
+                        fillField()}
+                break;
+            case "2": {currentValue = "2"
+                    fillField()}
+                break;
+            case "3": {currentValue = "3"
+                    fillField()}
+                break;
+            case "4": {currentValue = "4"
+                    fillField()}
+                break;
+            case "5": {currentValue = "5"
+                    fillField()}
+                break;
+            case "6": {currentValue = "6"
+                    fillField()}
+                break;
+            case "7": {currentValue = "7"
+                    fillField()}
+                break;
+            case "8": {currentValue = "8"
+                    fillField()}
+                break;
+            case "9": {currentValue = "9"
+            fillField()}
+                 break;
         }
     }
 })
@@ -88,8 +138,7 @@ let b = ""
 let a = ""
 let currentOperator= ""
 
-function fillField(e){
-    let currentValue = e.target.firstChild.nodeValue
+function fillField(){
     if(currentValue === "." && b.includes(".")){
         alert("no double points idiot!")
     }
