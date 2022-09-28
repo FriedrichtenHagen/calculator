@@ -57,7 +57,6 @@ key7.addEventListener("click", e => fillField(e))
 key8.addEventListener("click", e => fillField(e))
 key9.addEventListener("click", e => fillField(e))
 key0.addEventListener("click", e => fillField(e))
-
 keyAdd.addEventListener("click", e => addOperator(e))
 keySub.addEventListener("click", e => addOperator(e))
 keyMul.addEventListener("click", e => addOperator(e))
@@ -66,6 +65,24 @@ keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
 keyPoi.addEventListener("click", e => fillField(e))
 keyCle.addEventListener("click", e => clearInputFields())
+document.addEventListener("keydown", e => {
+    console.log(e)
+    if(e.key === "Backspace" && e.shiftKey === true){
+        clearInputFields()
+    }
+    else{
+        switch(e.key){
+            case "Backspace": deleteNum();
+                break; 
+            case "Enter": showResult();
+                break; 
+            case "Backspace": deleteNum();
+                break; 
+            case "+": addOperator("+");
+                break; 
+        }
+    }
+})
 
 let b = ""
 let a = ""
@@ -133,9 +150,6 @@ function deleteNum(){
 
 /* 
 Todos:
-    - bug: results get rounded???? 
-        (they especially get annoying once they reach the upper field)
-    - prevent adding multiple points (.)
     - calculations should be able to be strung together without using equals
         -check
     - add keyboard support
