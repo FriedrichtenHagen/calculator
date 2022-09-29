@@ -80,10 +80,14 @@ key0.addEventListener("click", e => {
 keyPoi.addEventListener("click", e => {
     currentValue = e.target.firstChild.nodeValue
     fillField(currentValue)})
-keyAdd.addEventListener("click", e => addOperator(e))
-keySub.addEventListener("click", e => addOperator(e))
-keyMul.addEventListener("click", e => addOperator(e))
-keyDiv.addEventListener("click", e => addOperator(e))
+keyAdd.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)})
+keySub.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)})
+keyMul.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)})
+keyDiv.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)})
 keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
 
@@ -98,11 +102,7 @@ document.addEventListener("keydown", e => {
             case "Backspace": deleteNum();
                 break; 
             case "Enter": showResult();
-                break; 
-            case "Backspace": deleteNum();
-                break; 
-            case "+": addOperator("+");
-                break; 
+                break;  
             case "1": {currentValue = "1"
                         fillField()}
                 break;
@@ -128,8 +128,20 @@ document.addEventListener("keydown", e => {
                     fillField()}
                 break;
             case "9": {currentValue = "9"
-            fillField()}
+                    fillField()}
                  break;
+            case "+": {currentOperator = "+"
+                    addOperator("")}
+                    break;
+            case "-": {currentOperator = "-"
+                    addOperator("")}
+                    break;
+            case "*": {currentOperator = "*"
+                    addOperator("")}
+                    break;
+            case "/": {currentOperator = "/"
+                    addOperator("")}
+                    break;
         }
     }
 })
@@ -156,7 +168,6 @@ function clearInputFields(){
 }
 
 function addOperator(e){
-    currentOperator = e.target.firstChild.nodeValue
     if(a === ""){
         upperField.textContent = b + currentOperator
         a = b
@@ -174,6 +185,7 @@ function addOperator(e){
         lowerField.textContent = ""
         b = ""
     }
+    
 }
 let result = ""
 function showResult(){ 
@@ -200,7 +212,6 @@ function deleteNum(){
 /* 
 Todos:
     - calculations should be able to be strung together without using equals
-        -check
     - add keyboard support for operators
     - 
 */
