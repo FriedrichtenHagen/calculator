@@ -56,6 +56,9 @@ body{
     background-color: cadetblue;
     cursor: pointer;
 }
+.key:hover{
+    scale: 1.1;
+}
 .divide, .multiply, .subtract, .add{
     background-color: rgb(145, 181, 131);
 }
