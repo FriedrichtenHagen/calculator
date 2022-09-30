@@ -174,6 +174,11 @@ function addOperator(e){
         lowerField.textContent = ""
         b = ""
     }
+    /* else if(a !== "" && b !== "" && currentOperator !== ""){
+        //chaining several operations
+
+
+    }*/
     else{
         // perform operation on added number  
         // a !== ""
@@ -212,7 +217,5 @@ function deleteNum(){
 /* 
 Todos:
     - calculations should be able to be strung together without using equals
-    - add keyboard support for operators
-    - 
 */
 
