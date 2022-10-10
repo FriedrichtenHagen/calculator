@@ -233,5 +233,6 @@ function deleteNum(){
 /* 
 Todos:
     - calculations should be able to be strung together without using equals
-*/
+    - + works, add for further operations
+    */
 
