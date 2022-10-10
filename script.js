@@ -80,7 +80,11 @@ key0.addEventListener("click", e => {
 keyPoi.addEventListener("click", e => {
     currentValue = e.target.firstChild.nodeValue
     fillField(currentValue)})
-keyAdd.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
+
+// variable 
+let previousOperator = "";
+keyAdd.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
+                                        currentOperator = e.target.firstChild.nodeValue 
                                         addOperator(e)})
 keySub.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
                                         addOperator(e)})
@@ -174,11 +178,23 @@ function addOperator(e){
         lowerField.textContent = ""
         b = ""
     }
-    /* else if(a !== "" && b !== "" && currentOperator !== ""){
+    else if(previousOperator){
         //chaining several operations
-
-
-    }*/
+        if(currentOperator === "/" && b === "0"){
+            alert("You can't divide by zero, stupid!")
+        }
+        else if(a==="" || b==="" || currentOperator === ""){
+            alert("you're missing something there bud")
+        }
+        else{
+            result = operate(currentOperator, a, b)
+            result = Math.round(result*1000000)/1000000 //round float to 6 decimal places
+            upperField.textContent = result + currentOperator
+            lowerField.textContent = ""
+            a = result
+            b = ""
+        }
+    }
     else{
         // perform operation on added number  
         // a !== ""
