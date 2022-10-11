@@ -82,15 +82,23 @@ keyPoi.addEventListener("click", e => {
     fillField(currentValue)})
 
 // variable 
-let previousOperator = "";
-keyAdd.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
+let previousOperator = false;
+keyAdd.addEventListener("click", e => { if(currentOperator !== ""){
+                                            previousOperator = true // previous Operator exists
+                                            showResult()
+                                        } else{
+                                            currentOperator = e.target.firstChild.nodeValue 
+                                            addOperator(e)
+                                        }
+                                        })
+keySub.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
                                         currentOperator = e.target.firstChild.nodeValue 
                                         addOperator(e)})
-keySub.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
+keyMul.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
+                                        currentOperator = e.target.firstChild.nodeValue 
                                         addOperator(e)})
-keyMul.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
-                                        addOperator(e)})
-keyDiv.addEventListener("click", e => {currentOperator = e.target.firstChild.nodeValue 
+keyDiv.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
+                                        currentOperator = e.target.firstChild.nodeValue 
                                         addOperator(e)})
 keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
@@ -173,6 +181,7 @@ function clearInputFields(){
 
 function addOperator(e){
     if(a === ""){
+        // fill the upper field because it is empty
         upperField.textContent = b + currentOperator
         a = b
         lowerField.textContent = ""
@@ -221,6 +230,10 @@ function showResult(){
         result = Math.round(result*1000000)/1000000 //round float to 6 decimal places
         upperField.textContent = a + currentOperator + b + "="
         lowerField.textContent = result
+       /* if(operation button was pressed){
+
+        }*/
+
         currentOperator = ""
         b = result
     }
