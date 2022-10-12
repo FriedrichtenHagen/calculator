@@ -2,9 +2,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ffeace;
 }
 .calculator{
-    background-color: darksalmon;
+    background-color:#877edb ;
     height: 500px;
     width: 400px;
     border-radius: 20px;
@@ -12,18 +13,21 @@ body{
     flex-direction: column;
     align-items: center;
     border: 2px solid black;
+    margin-top: 100px;
 }
 .lowerField{
     height: 100px;
     width: 370px;
     font-size: 40px;
     margin: 0px 5px 15px 5px;
+    border-radius: 0px 0px 4px 4px;
 }
 .upperField{
     height: 100px;
     width: 370px;
     font-size: 60px;
     margin: 15px 5px 0px 5px;
+    border-radius: 4px 4px 0px 0px;
 }
 .lowerField, .upperField{
     background-color: aliceblue;
@@ -53,14 +57,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;   
-    background-color: cadetblue;
+    background-color: #e8e8e8;
     cursor: pointer;
 }
 .key:hover{
     scale: 1.1;
 }
 .divide, .multiply, .subtract, .add{
-    background-color: rgb(145, 181, 131);
+    background-color:rgb(212 236 203);
 }
 .currentOperator{
     background-color:aqua;
