@@ -5,7 +5,7 @@ body{
     background-color: #ffeace;
 }
 .calculator{
-    background-color:#877edb ;
+    background-color:#ddddde ;
     height: 500px;
     width: 400px;
     border-radius: 20px;
@@ -57,7 +57,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;   
-    background-color: #e8e8e8;
+    background-color: #70b6f3;
     cursor: pointer;
 }
 .key:hover{
