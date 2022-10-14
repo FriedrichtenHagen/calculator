@@ -81,25 +81,20 @@ keyPoi.addEventListener("click", e => {
     currentValue = e.target.firstChild.nodeValue
     fillField(currentValue)})
 
-// variable 
-let previousOperator = false;
-keyAdd.addEventListener("click", e => { if(currentOperator !== ""){
-                                            previousOperator = true // previous Operator exists
-                                            showResult()
-                                        } else{
-                                            currentOperator = e.target.firstChild.nodeValue 
-                                            addOperator(e)
-                                        }
+
+keyAdd.addEventListener("click", e => { 
+                                        currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)
                                         })
-keySub.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
-                                        currentOperator = e.target.firstChild.nodeValue 
-                                        addOperator(e)})
-keyMul.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
-                                        currentOperator = e.target.firstChild.nodeValue 
-                                        addOperator(e)})
-keyDiv.addEventListener("click", e => { if(currentOperator !== ""){previousOperator = true}
-                                        currentOperator = e.target.firstChild.nodeValue 
-                                        addOperator(e)})
+keySub.addEventListener("click", e => { currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)
+                                        })
+keyMul.addEventListener("click", e => { currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)
+                                        })
+keyDiv.addEventListener("click", e => { currentOperator = e.target.firstChild.nodeValue 
+                                        addOperator(e)
+                                        })
 keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
 
@@ -179,63 +174,56 @@ function clearInputFields(){
     result= ""
     currentOperator = ""
 }
-
+let savedOperator = ""
 function addOperator(e){
     if(a === ""){
         // fill the upper field because it is empty
-        upperField.textContent = b + currentOperator
+        savedOperator = currentOperator // save the upperField Operator
+        upperField.textContent = b + savedOperator
+        currentOperator = "" //reset the currentOperator
         a = b
         lowerField.textContent = ""
         b = ""
     }
-    else if(previousOperator){
-        //chaining several operations
-        if(currentOperator === "/" && b === "0"){
+    else{   // a !== "" (chaining several operations)
+        if(savedOperator === "/" && b === "0"){
             alert("You can't divide by zero, stupid!")
         }
-        else if(a==="" || b==="" || currentOperator === ""){
-            alert("you're missing something there bud")
+        else if(a==="" || b==="" || savedOperator === ""){
+            alert("you're missing something there buddy")
         }
-        else{
-            result = operate(currentOperator, a, b)
+        else{ //perform operation on a,b, savedOperator
+            result = operate(savedOperator, a, b)
             result = Math.round(result*1000000)/1000000 //round float to 6 decimal places
             upperField.textContent = result + currentOperator
             lowerField.textContent = ""
             a = result
             b = ""
+            savedOperator = currentOperator
+            currentOperator = ""
         }
-    }
-    else{
-        // perform operation on added number  
-        // a !== ""
-        // a === result
-        //
-        result = "" // reset result
-        a = b   // move result of previos calculation to a (upper)
-        upperField.textContent = a + currentOperator
-        lowerField.textContent = ""
-        b = ""
     }
     
 }
 let result = ""
 function showResult(){ 
-    if(currentOperator === "/" && b === "0"){
+    if(savedOperator === "/" && b === "0"){
         alert("You can't divide by zero, stupid!")
     }
-    else if(a==="" || b==="" || currentOperator === ""){
+    else if(a==="" || b==="" || savedOperator === ""){
         alert("you're missing something there bud")
     }
     else{
-        result = operate(currentOperator, a, b)
+        result = operate(savedOperator, a, b)
         result = Math.round(result*1000000)/1000000 //round float to 6 decimal places
-        upperField.textContent = a + currentOperator + b + "="
+        upperField.textContent = a + savedOperator + b + "="
         lowerField.textContent = result
        /* if(operation button was pressed){
 
         }*/
 
         currentOperator = ""
+        savedOperator = ""
         b = result
     }
 }
@@ -246,9 +234,7 @@ function deleteNum(){
 
 /* 
 Todos:
-    - calculations should be able to be strung together without using equals
-
-
+    - results of showResults can not be calculated, as a !== ""!!! Fix this bug
     - make the eventlisteners and queryselectors simpler
     */
 
