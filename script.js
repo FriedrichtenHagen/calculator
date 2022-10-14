@@ -177,6 +177,7 @@ function clearInputFields(){
     a = ""
     upperField.textContent = a
     result= ""
+    currentOperator = ""
 }
 
 function addOperator(e){
@@ -246,6 +247,8 @@ function deleteNum(){
 /* 
 Todos:
     - calculations should be able to be strung together without using equals
-    - + works, add for further operations
+
+
+    - make the eventlisteners and queryselectors simpler
     */
 
