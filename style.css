@@ -3,9 +3,16 @@
 }
 body{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     background-color: #ffeace;
+    height: 100vh;
+    margin: 0px;
+}
+.footer{
+    font-family: 'Source Code Pro', monospace;
+    padding: 10px;
 }
 .calculator{
     background-color:#9a9aaf ;
