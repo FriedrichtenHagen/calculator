@@ -9,6 +9,12 @@ body{
     background-color: #ffeace;
     height: 100vh;
     margin: 0px;
+    background: content-box radial-gradient(rgb(245, 189, 94), skyblue);
+}
+.main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 .footer{
     font-family: 'Source Code Pro', monospace;
@@ -23,7 +29,7 @@ body{
     flex-direction: column;
     align-items: center;
     border: 2px solid black;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .lowerField{
     height: 100px;
