@@ -1,3 +1,6 @@
+* {
+    font-family: arial,sans-serif;
+}
 body{
     display: flex;
     justify-content: center;
@@ -5,7 +8,7 @@ body{
     background-color: #ffeace;
 }
 .calculator{
-    background-color:#ddddde ;
+    background-color:#9a9aaf ;
     height: 500px;
     width: 400px;
     border-radius: 20px;
@@ -34,7 +37,8 @@ body{
     box-sizing: border-box;
     text-align: right;
     padding: 5px 15px 5px 15px;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    overflow-y: scroll;
 }
 .keyPad{
     box-sizing: border-box;
@@ -57,14 +61,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;   
-    background-color: #70b6f3;
+    background-color: #b8daf9;
     cursor: pointer;
+    transition: all 0.2s;
 }
 .key:hover{
-    scale: 1.1;
+    scale: 1.05;
 }
 .divide, .multiply, .subtract, .add{
-    background-color:rgb(212 236 203);
+    background-color:rgb(206 232 197);
 }
 .currentOperator{
     background-color:aqua;
