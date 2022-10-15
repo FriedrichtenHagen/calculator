@@ -218,13 +218,11 @@ function showResult(){
         result = Math.round(result*1000000)/1000000 //round float to 6 decimal places
         upperField.textContent = a + savedOperator + b + "="
         lowerField.textContent = result
-       /* if(operation button was pressed){
-
-        }*/
 
         currentOperator = ""
         savedOperator = ""
         b = result
+        a = ""
     }
 }
 function deleteNum(){
