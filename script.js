@@ -236,5 +236,8 @@ function deleteNum(){
 Todos:
     - results of showResults can not be calculated, as a !== ""!!! Fix this bug
     - make the eventlisteners and queryselectors simpler
+    - add shadow to keys
+    - change font and font size
+    - make display smaller?
     */
 
