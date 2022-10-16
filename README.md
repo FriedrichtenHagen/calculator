@@ -1,1 +1,1 @@
-Creating a calculator that does not use eval()
+Creating a calculator (that does not use eval()) with javascript that can string multiple operations, use float numbers, delete and clear. 
