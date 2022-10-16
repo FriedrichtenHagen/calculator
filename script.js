@@ -179,6 +179,7 @@ function clearInputFields(){
     currentOperator = ""
     savedOperator = ""
 }
+// add operator
 let savedOperator = ""
 function addOperator(e){
     if(a === ""){
@@ -190,7 +191,8 @@ function addOperator(e){
         lowerField.textContent = ""
         b = ""
     }
-    else{   // a !== "" (chaining several operations)
+    else{   
+        // a !== "", there is already an operator in action (chaining several operations)
         if(savedOperator === "/" && b === "0"){
             alert("You can't divide by zero, stupid!")
         }
@@ -207,9 +209,9 @@ function addOperator(e){
             savedOperator = currentOperator
             currentOperator = ""
         }
-    }
-    
+    }  
 }
+// perform the calculation on "="
 let result = ""
 function showResult(){ 
     if(savedOperator === "/" && b === "0"){
@@ -230,6 +232,7 @@ function showResult(){
         a = ""
     }
 }
+// delete a number
 function deleteNum(){
     b = b.toString().slice(0,-1)
     lowerField.textContent = b
@@ -237,7 +240,6 @@ function deleteNum(){
 
 /* 
 Todos:
-    - results of showResults can not be calculated, as a !== ""!!! Fix this bug
     - make the eventlisteners and queryselectors simpler
     - add shadow to keys
     - change font and font size
