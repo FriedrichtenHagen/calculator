@@ -177,6 +177,7 @@ function clearInputFields(){
     upperField.textContent = a
     result= ""
     currentOperator = ""
+    savedOperator = ""
 }
 let savedOperator = ""
 function addOperator(e){
