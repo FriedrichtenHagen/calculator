@@ -1,3 +1,4 @@
+// basic mathematical operations
 function add(a, b){
     return a+b
 }
@@ -25,7 +26,8 @@ function operate(operator, a, b){
         default: console.log("not valid operator")
     }
 }
-
+// selecting the key divs
+//numbers
 const key1 = document.querySelector(".one");
 const key2 = document.querySelector(".two");
 const key3 = document.querySelector(".three")
@@ -36,7 +38,7 @@ const key7 = document.querySelector(".seven")
 const key8 = document.querySelector(".eight")
 const key9 = document.querySelector(".nine")
 const key0 = document.querySelector(".zero")
-
+// operation keys
 const keyAdd = document.querySelector(".add")
 const keySub = document.querySelector(".subtract")
 const keyMul = document.querySelector(".multiply")
@@ -47,6 +49,8 @@ const keyDel = document.querySelector(".delete")
 const keyPoi = document.querySelector(".point")
 const lowerField = document.querySelector(".lowerField")
 const upperField = document.querySelector(".upperField")
+// add event listeners
+// numbers
 key1.addEventListener("click", e => {
     currentValue = e.target.firstChild.nodeValue
     fillField(currentValue)})
@@ -80,8 +84,7 @@ key0.addEventListener("click", e => {
 keyPoi.addEventListener("click", e => {
     currentValue = e.target.firstChild.nodeValue
     fillField(currentValue)})
-
-
+// operation keys
 keyAdd.addEventListener("click", e => { 
                                         currentOperator = e.target.firstChild.nodeValue 
                                         addOperator(e)
@@ -97,8 +100,8 @@ keyDiv.addEventListener("click", e => { currentOperator = e.target.firstChild.no
                                         })
 keyDel.addEventListener("click", e => deleteNum(e))
 keyEqu.addEventListener("click", e =>showResult())
-
 keyCle.addEventListener("click", e => clearInputFields())
+// add keyboard event listeners
 document.addEventListener("keydown", e => {
     console.log(e)
     if(e.key === "Backspace" && e.shiftKey === true){
@@ -152,11 +155,11 @@ document.addEventListener("keydown", e => {
         }
     }
 })
-
+// declare variables
 let b = ""
 let a = ""
 let currentOperator= ""
-
+// add number to lower field
 function fillField(){
     if(currentValue === "." && b.includes(".")){
         alert("no double points idiot!")
@@ -166,6 +169,7 @@ function fillField(){
         lowerField.textContent = b
     }
 }
+// clear all fields and reset all variables
 function clearInputFields(){
     b = ""
     lowerField.textContent = b
