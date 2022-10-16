@@ -242,7 +242,7 @@ function deleteNum(){
 Todos:
     - make the eventlisteners and queryselectors simpler
     - add shadow to keys
-    - change font and font size
     - make display smaller?
+    - create a burger menu for fun?
     */
 
